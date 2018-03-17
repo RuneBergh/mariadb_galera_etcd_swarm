@@ -1,0 +1,17 @@
+# version 0.1
+FROM ubuntu:16.04
+MAINTAINER Rune Bergh "runbergh@stud.ntnu.no"
+RUN apt-get update && apt-get install -y \
+    libz-dev \
+    libmemcached-dev \
+    curl \
+    apache2 \
+    libapache2-mod-php php-mysql \
+    mysql-client \
+    php-memcache \
+    libmemcached11
+RUN rm /var/www/html/index.html
+ADD code/ /var/www/html/
+EXPOSE 80
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD [ "-D","FOREGROUND"]

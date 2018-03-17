@@ -1,0 +1,20 @@
+FROM ubuntu:16.04
+RUN apt-get update && apt-get install -y \
+	 php-memcache \
+         memcached \
+   	 libmemcached11 \
+         libmemcache-dev \
+         libcache-memcached-perl \
+	 munin 
+RUN apt install -y libmemcached-tools
+RUN rm /etc/memcached.conf
+ADD ./memcached.conf  /etc/
+ 
+#set the user to run Memcached daemon 
+USER daemon
+
+# Set the entrypoint to memcached binary 
+ENTRYPOINT memcached
+
+# Default Memcached run command arguments 
+CMD ["-u", "root", "-m", "128"]
