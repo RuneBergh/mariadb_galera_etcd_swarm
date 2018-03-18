@@ -46,9 +46,9 @@ services:
       - "11211:11211"
   web:
     image: rbnor/web
-    #links:
-     # - mariadb
-     # - memcached
+    links:
+      - mariadb_galera
+      - memcached
     ports:
       - "80:80"
     environment:
