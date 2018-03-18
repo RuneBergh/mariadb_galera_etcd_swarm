@@ -80,7 +80,7 @@ sudo docker stack deploy -c docker-compose.yml
 #documentation or further help:
 https://github.com/severalnines/galera-docker-mariadb
 https://severalnines.com/blog/mysql-docker-deploy-homogeneous-galera-cluster-etcd
-
+https://severalnines.com/blog/mysql-docker-swarm-mode-limitations-galera-cluster-production-setups
 
 
 The docker compose file uses my own web image with a custom php config image, build your own image and push it to docker hub
